@@ -1,12 +1,16 @@
 <head>
     <title>hexagon generator</title>
-    
 </head>
 <body>
-    <body>
-        <canvas id="canvas" width="1000" height="1000">
-           
-        </canvas>
-        <script src="./code.js"></script>
-    </body>
+        <form name="form">
+                x: <br><input type="number" name="x" id="x" value=5><br>
+                y: <br><input type="number" name="y" id="y" value=5><br>
+                length: <br><input type="number" name="length" id="length" value=50><br>
+                layer: <br><input type="number" name="layer" id="layer" value =3><br>
+            
+        <button type="button" onclick='drawImage({x:Number(form.x.value),y:Number(form.y.value)},Number(form.length.value), Number(form.layer.value))'>Try it</button>
+         </form>
+        <canvas id="canvas" width="800" height="800"> </canvas>
+        <script src="./code.js"> </script>
+
 </body>
