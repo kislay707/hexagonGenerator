@@ -122,18 +122,14 @@ function drawEdges(points, side, ctx) {
                         break;
                     }
                     ctx.beginPath();
-                    ctx.moveTo(points[i].x + 500, points[i].y + 500); // shifting canvas drawing by 500, 500
-                    ctx.lineTo(points[i+j].x + 500, points[i+j].y + 500);
+                    ctx.moveTo(points[i].x + 400, points[i].y + 400); // shifting canvas drawing by 400, 400
+                    ctx.lineTo(points[i+j].x + 400, points[i+j].y + 400);
                     ctx.stroke();
                 }
             }
         }
     }
 }
-
-var side = 50;
-var level = 3;
-var vertices = hex({x: 5, y: 5}, side, level);
 
 // the vertices returned by hex function also have duplicate vertices in them
 // the duplicate ones are marked with key 'existed' as 'true'
@@ -142,9 +138,17 @@ var removeDupicatesVertices = (vertices) => {
     return vertices.filter(points => !points.existed );
 }
 
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+var canvas,ctx;
+var side = 50;
+var level = 3;
 
-if (vertices) {
-    drawEdges(vertices, side, ctx);
+function drawImage(centre, side, level){
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var vertices= hex(centre, side, level) ;
+    if (vertices) {
+        drawEdges(vertices, side, ctx);
+    }
 }
+drawImage({x: 5, y: 5}, side, level);
