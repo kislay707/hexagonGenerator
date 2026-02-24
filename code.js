@@ -1,5 +1,6 @@
 // main function to return all the vertices of hexagons
 function hex(centre1, side, level) {
+    
     if (level <= 0) {
         return;
     }
