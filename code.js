@@ -14,6 +14,7 @@ function hex(centre1, side, level) {
             centrePoints = pushCentre(centrePoints, findPoints(centre, -1 / Math.sqrt(3), Math.sqrt(3) * side));
             curIndex++;
         }
+        
     }
     for (let i = 0; i< centrePoints.length; i++) {
         centre = centrePoints[i];
